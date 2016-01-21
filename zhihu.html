@@ -3,10 +3,56 @@
 <head>
     <meta charset="utf-8">
     <title>知乎 - 与世界分享你的装逼技巧</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var setup = function() {
+                // tab click
+                $('.zh-tab > a').on('click', function () {
+                    var self = $(this);
+                    console.log('click a')
+                    $('.active').removeClass('active');
+                    self.addClass('active');
+                });
+
+                // tab action
+                var tabAction = function (position, showLogin) {
+                    console.log(position);
+                    $(".zh-block").animate({
+                        "left": position
+                    }, "fast");
+                    $('#zh-form-login').toggle(showLogin);
+                    $('#zh-form-signup').toggle(!showLogin);
+                };
+
+                $('#zh-signup').on('click', function() {
+                    var position = '100px';
+                    var showLogin = false;
+                    tabAction(position, showLogin);
+                });
+                $('#zh-login').on('click', function() {
+                    var position = '155px';
+                    var showLogin = true;
+                    tabAction(position, showLogin);
+                });                
+            };
+
+            var __main = function() {
+                setup();
+                // select signup
+                $('#zh-signup').click();
+            };
+
+            __main();
+        });
+    </script>
     <style type="text/css">
         a {
             text-decoration: none;
             color: #000;
+        }
+        .active {
+            color: dodgerblue;
         }
         .zh-container {
             text-align: center;
@@ -17,12 +63,13 @@
         }
         .zh-header h1 {
             font-size: 50px;
+            color: dodgerblue;
         }
         .zh-header h2 {
             font-size: 18px;
         }
         .zh-tab {
-            margin-top: 20px;
+            margin-top: 30px;
         }
         .zh-tab a {
             margin: 10px;
@@ -49,7 +96,7 @@
         }
         .zh-input-wrapper input {
             width: 90%;
-            height: 30px;
+            height: 35px;
             margin: 5px;
             border: none;
             outline: none;
@@ -63,6 +110,7 @@
             color: white;
             border: none;
             border-radius: 3px;
+            font-size: 16px;
         }
 
         .float-left {
@@ -102,7 +150,27 @@
                             <input type="text" placeholder="验证码" required/>
                         </div>
                     </div>
-                    <button class="zh-button-big" type="submit">注册</button>
+                    <button class="zh-button-big" type="submit">注册知乎</button>
+                    <span class="float-left">社交帐号登录</span>
+                </form>
+                <form id="zh-form-login">
+                    <div class="zh-form-textinput">
+                        <div class="zh-input-wrapper">
+                            <input type="text" placeholder="手机号或邮箱" required/>
+                        </div>
+                        <div class="zh-input-wrapper">
+                            <input type="text" placeholder="密码" required/>
+                        </div>
+                        <div class="zh-input-wrapper">
+                            <input type="text" placeholder="验证码" required/>
+                        </div>
+                    </div>
+                    <button class="zh-button-big" type="submit">开始装逼</button>
+                    <div class="zh-remember float-left">
+                        <input id="zh-id-remember" type="checkbox" name="remember" />
+                        <label for="zh-id-remember">记住我</label>
+                    </div>
+                    <a class="float-right" href="#">无法装逼?</a>
                 </form>
             </div>
         </div>
@@ -112,7 +180,7 @@
 <!--
 ✓ 1, 做出基本框架
 ✓ 2, 做好位置
-3, 做出效果
-4, 做出动态效果(js)
+✓ 3, 做出效果
+✓ 4, 做出动态效果(js)
 5, 背后烧 cpu 的 canvas 动画
 -->
