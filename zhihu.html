@@ -3,6 +3,76 @@
 <head>
     <meta charset="utf-8">
     <title>知乎 - 与世界分享你的装逼技巧</title>
+    <style type="text/css">
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        .zh-container {
+            text-align: center;
+        }
+        .zh-main {
+            width: 300px;
+            margin: auto;
+        }
+        .zh-header h1 {
+            font-size: 50px;
+        }
+        .zh-header h2 {
+            font-size: 18px;
+        }
+        .zh-tab {
+            margin-top: 20px;
+        }
+        .zh-tab a {
+            margin: 10px;
+        }
+        .zh-block {
+            height: 3px;
+            width: 45px;
+            position: relative;
+            left: 100px;;
+            background-color: dodgerblue;
+        }
+        .zh-form-textinput {
+            margin-top: 20px;
+            border-style: solid;
+            border-radius: 3px;
+            border-width: 1px;
+            border-color: lightgray;
+        }
+        .zh-input-wrapper + .zh-input-wrapper {
+            border-style: solid;
+            border-width: 0px;
+            border-top-width: 1px;
+            border-color: lightgray;
+        }
+        .zh-input-wrapper input {
+            width: 90%;
+            height: 30px;
+            margin: 5px;
+            border: none;
+            outline: none;
+        }
+        .zh-button-big {
+            width: 100%;
+            height: 35px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: dodgerblue;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .float-left {
+            float: left;
+        }
+
+        .float-right {
+            float: right;
+        }
+    </style>
 </head>
 <body>
     <div class="zh-container">
@@ -32,12 +102,7 @@
                             <input type="text" placeholder="验证码" required/>
                         </div>
                     </div>
-                    <button type="submit">注册</button>
-                    <div class="zh-remember float-left">
-                        <input id="zh-id-remember" type="checkbox" name="remember" />
-                        <label for="zh-id-remember">记住我</label>
-                    </div>
-                    <a class="float-right" href="">无法登录?</a>
+                    <button class="zh-button-big" type="submit">注册</button>
                 </form>
             </div>
         </div>
@@ -46,7 +111,7 @@
 </html>
 <!--
 ✓ 1, 做出基本框架
-2, 做好位置
+✓ 2, 做好位置
 3, 做出效果
 4, 做出动态效果(js)
 5, 背后烧 cpu 的 canvas 动画
